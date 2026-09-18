@@ -815,3 +815,158 @@ footer{background:#0f0f0e;color:#eae4da;padding:70px 0 26px}
     }
 
 }
+
+
+/* svg animation */
+
+/* =========================================
+   EXPORT MARKETS - SCROLL MAP
+   ========================================= */
+
+.markets-animation {
+    position: relative;
+    height: 500vh;
+    background: var(--paper);
+}
+
+.markets-animation-sticky {
+    position: sticky;
+    top: 78px;
+    height: calc(100vh - 78px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.markets-map {
+    position: relative;
+    width: min(1400px, 92vw);
+    aspect-ratio: 2 / 1;
+}
+
+/* SVG itself */
+
+.markets-map-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.markets-map-svg svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Labels */
+
+.market-label {
+    position: absolute;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translate(-50%, 10px)
+        scale(.94);
+
+    transition:
+        opacity .45s ease,
+        transform .45s ease,
+        visibility .45s ease;
+
+    pointer-events: none;
+    z-index: 10;
+}
+
+.market-label span {
+    display: block;
+
+    padding: 7px 12px;
+
+    background: var(--ink);
+    color: var(--paper);
+
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 6px 12px rgba(0,0,0,.16),
+        0 14px 25px rgba(0,0,0,.12);
+}
+
+.market-label.active {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translate(-50%, -10px)
+        scale(1);
+}
+
+
+/* USA */
+.market-label-usa {
+    left: 27%;
+    top: 34%;
+}
+
+/* Germany */
+.market-label-germany {
+    left: 51%;
+    top: 36%;
+}
+
+/* UAE */
+.market-label-uae {
+    left: 60%;
+    top: 49%;
+}
+
+/* Africa */
+.market-label-africa {
+    left: 51%;
+    top: 59%;
+}
+
+/* Bangladesh */
+.market-label-bangladesh {
+    left: 71%;
+    top: 49%;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 640px) {
+
+    .markets-animation {
+        height: 500vh;
+    }
+
+    .markets-animation-sticky {
+        top: 68px;
+        height: calc(100vh - 68px);
+    }
+
+    .markets-map {
+        width: 94vw;
+    }
+
+    .market-label span {
+        padding: 6px 9px;
+        font-size: 8px;
+        letter-spacing: .11em;
+    }
+
+}
